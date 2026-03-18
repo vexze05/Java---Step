@@ -1,0 +1,51 @@
+import java.util.Map;
+
+public class BannerApp {
+
+    public static void main(String[] args) {
+
+        // HashMap to store character patterns
+        Map<Character, String[]> patternMap = new HashMap<>();
+
+        // Pattern for O
+        patternMap.put('O', new String[]{
+                " *** ",
+                "*   *",
+                "*   *",
+                "*   *",
+                " *** "
+        });
+
+        // Pattern for P
+        patternMap.put('P', new String[]{
+                "**** ",
+                "*   *",
+                "**** ",
+                "*    ",
+                "*    "
+        });
+
+        // Word to display
+        String word = "OOPS";
+
+        // Height of each letter pattern
+        int height = 5;
+
+        // Printing banner using nested loops
+        for (int row = 0; row < height; row++) {
+
+            for (int i = 0; i < word.length(); i++) {
+
+                char ch = word.charAt(i);
+
+                String[] pattern = patternMap.get(ch);
+
+                if (pattern != null) {
+                    System.out.print(pattern[row] + " ");
+                }
+            }
+
+            System.out.println();
+        }
+    }
+}
